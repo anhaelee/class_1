@@ -5,12 +5,14 @@
 		input{font-size:2em;}
 		body{font-size:1em;}
 		button{font-size: 2em;}
+		
 	</style>
 </head>
 <body>
-	<h1 id="display">당신의 체중을 알아보세여:-)</h1>
-	체중<input type = "text" id="weight" placeholder = "당신의 체중을 알려주세여">kg
-	<br>키<input type = "text" id="height" placeholder = "당신의 키를 알려주세여">kg
+	<h1 id="display">당신의 적금이자 알아보세여:-)</h1>
+	<input type = "text" id="$" placeholder = "당신의 월납입액을 알려주세여">원
+	<br>연이율<input type = "text" id="r" placeholder = "연이율을 알려주세여">원
+	<br>납입개월수<input type = "text" id="n" placeholder = "납입개월수를 알려주세여">개월
 	<br><button id ="action">계산하기</button>
 
 
@@ -19,16 +21,15 @@
        // variable and function
        action.onclick = function(){
        	console.log("OK");
-       	var myWeight = weight.value;
-       	var myHeight = height.value;
-       	standardWeight(myWeight,myHeight);
+       	var my$ = $.value;
+       	var myr = r.value;
+	var myn = n.value;
+       	incomeFrom($,r,n);
        }
        
-       function standardWeight(weight, height){
-       	var standardWeight = (height - 100) * 0.9;
-       	var dietWeight = weight - standardWeight;
-       	var fatRate = (weight / standardWeight)*10;
-       	var Text = "당신의 현재 몸무게는 " + weight + "kg이고, 표준 체중은 " + standardWeight + "kg입니다. 따라서 당신은 " + dietWeight + "kg를 감량해야합니다." + "현재 비만도는" + fatRate + "%입니다.";
+       function standardWeight($, r, n){
+       	var incomeFrom = $ * r/12 * n*(n+1)/2;
+        var imcomeTax = incomeFrom * (incomeFrom - 15.4%)
       	 display.innerHTML = Text;
        }
 	</script>
