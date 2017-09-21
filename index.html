@@ -25,11 +25,12 @@
        	var myr = r.value;
 	var myn = n.value;
        	incomeFrom($,r,n);
+	incomeTax(incomeFrom);
        }
        
        function standardWeight($, r, n){
        	var incomeFrom = $ * r/12 * n*(n+1)/2;
-        var imcomeTax = incomeFrom * (incomeFrom - 15.4%)
+        var incomeTax = incomeFrom * (1 - 0.154)
       	 display.innerHTML = Text;
        }
 	</script>
